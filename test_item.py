@@ -53,3 +53,9 @@ class TestItem(unittest.TestCase):
             [self.item3._name, self.item3._description, self.item3._cost, self.item3._dispatch_time, self.item3._tags],
             [self.item1._name, self.item1._description, self.item1._cost, self.item1._dispatch_time, self.item1._tags])
         self.assertNotEqual(self.item3._id, self.item1._id)
+
+    def test_items_list(self):
+        "Проверка работоспособности Item._items"
+        self.assertEqual(self.item1._id, Item._items.index(self.item1))
+        self.assertEqual(self.item2._id, Item._items.index(self.item2))
+        self.assertEqual(self.item101._id, Item._items.index(self.item101))
