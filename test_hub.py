@@ -32,32 +32,40 @@ class TestHub(unittest.TestCase):
         self.assertEqual(self.hub1[0], self.item1)
 
     def test_find_by_id(self):
+        "Проверка поиска по айди"
         self.assertEqual(self.hub1.find_by_id(self.item1._id), (self.hub1._items.index(self.item1), self.item1))
 
     def test_find_by_tags_(self):
+        "Проверка поиска по тегу"
         self.assertEqual(self.hub1.find_by_tags(['sexy', 'sea']), [self.item1, self.item2])
 
     def test_rm_item_by_id(self):
+        "Проверка удаления предмета по айди"
         self.hub1.rm_item(self.item1._id)
         self.assertEqual(self.hub1._items, [self.item2])
 
     def test_find_by_date(self):
+        "Проверка поиска по датам"
         self.assertEqual(self.hub1.find_by_date(date(2025, 1, 10)), [self.item2])
         self.assertEqual(self.hub1.find_by_date(date(2025, 1, 10), date.today()), self.hub1._items)
 
     def test_rm_item_by_item(self):
+        "Проверка удаления айтема по самому себе(экземпляру класса)"
         self.hub1.rm_item(self.item2)
         self.assertEqual(self.hub1._items, [self.item1])
 
     def test_drop_items(self):
+        "Проверка удаления нескольких айтемов"
         self.hub1.drop_items(self.item1, self.item2)
         self.assertEqual(self.hub1._items, [])
 
     def test_clear_items(self):
+        "Проверка очистки полностью айтемов"
         self.hub1.clear_items()
         self.assertEqual(self.hub1._items, [])
 
     def test_find_most_valuable(self):
+        "Проверка поиска самых ценных айтемов"
         self.assertEqual(self.hub1.find_most_valuable(), [self.item2])
         self.assertEqual(self.hub1.find_most_valuable(2), [self.item2, self.item1])
         self.assertEqual(self.hub1.find_most_valuable(1000), [self.item2, self.item1])

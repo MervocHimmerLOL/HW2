@@ -12,15 +12,19 @@ class Item:
     _dispatch_time: date
     _tags: list
     _cost: int
-    __global_id = 0
+    "Все что выше - указания к атрибутам класса и их необходимым типам"
+    __global_id = 0 #Переменная для уникальных айди предметов
+    _items = list() #Тут хранятся все предметы
 
     def __init__(self, name, description, cost, dis_time=date.today(), *tags):
+        "Инициализируем"
         self._id = Item.__global_id
         self._name = name
         self._description = description
         self._dispatch_time = dis_time
         self._cost = cost
         self._tags = list(tags)
+        Item._items.append(self)
         Item.__global_id += 1
 
     @property
@@ -63,6 +67,9 @@ class Item:
     def __lt__(self, other):
         return self.cost < other.cost
 
+    def __hash__(self):
+        return hash(self._id)
+
     def add_tag(self, *tags):
         for tag in tags:
             if tag not in self._tags:
@@ -80,7 +87,7 @@ class Item:
 
     def copy(self):
         return Item(self._name, self._description, self._cost, self._dispatch_time, *self._tags)
-
+    "Ниже бога нет"
     def save_as_json(self, json_path):
         data = {'name': self._name,
                 'description': self._description,

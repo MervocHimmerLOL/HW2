@@ -1,5 +1,5 @@
 from datetime import date
-from textwrap import indent
+from textwrap import indent #я не понимаю, откуда это взялось
 import json
 from Item import Item
 
@@ -10,6 +10,7 @@ class Hub:
     _hub = None
 
     def __new__(cls, *args, **kwargs):
+        "Проверочка на синглтон"
         print('Creating hub')
         if cls._hub == None:
             cls._hub = super().__new__(cls)
@@ -93,9 +94,8 @@ class Hub:
         if amount > len(self._items):
             amount = len(self._items)
         return sorted(self._items, key=lambda item: item.cost, reverse=True)[:amount]
-
+    "Ниже бога вообще нету"
     def save_as_json(self, json_path):
-        """Сохранить Hub в JSON файл"""
         data = {
             "creation_date": self._date.isoformat(),
             "items": [
