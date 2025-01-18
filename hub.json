@@ -1,0 +1,48 @@
+{
+    "creation_date": "2025-01-01",
+    "items": [
+        {
+            "name": "Catfish",
+            "description": "Regular catfish",
+            "cost": 12,
+            "dis_time": "2024-10-13",
+            "tags": [
+                "sea",
+                "fish",
+                "large"
+            ]
+        },
+        {
+            "name": "Clownfish",
+            "description": "Regular clownfish",
+            "cost": 7,
+            "dis_time": "2024-12-13",
+            "tags": [
+                "sea",
+                "fish",
+                "small"
+            ]
+        },
+        {
+            "name": "Aerosmith - Aerosmith. 1973",
+            "description": "Glam-Rock classic",
+            "cost": 50,
+            "dis_time": "2025-01-01",
+            "tags": [
+                "music",
+                "album",
+                "Columbia",
+                "Glam-Rock"
+            ]
+        },
+        {
+            "name": "Left hand prosthesis",
+            "description": "Left hand prosthesis with a silver color",
+            "cost": 1,
+            "dis_time": "2025-01-18",
+            "tags": [
+                "hand"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "name": "Fish",
+    "description": "Fresh fish",
+    "cost": 5,
+    "dis_time": "2025-01-12",
+    "tags": [
+        "sea",
+        "fish"
+    ]
+}
